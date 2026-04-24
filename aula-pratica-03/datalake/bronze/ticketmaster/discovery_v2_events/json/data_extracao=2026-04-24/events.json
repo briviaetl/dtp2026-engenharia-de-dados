@@ -1,0 +1,1091 @@
+[
+    {
+        "name": "Harry Styles: Together, Together",
+        "type": "event",
+        "id": "ZFIMVHtnMZ17ASpe",
+        "test": false,
+        "url": "https://www.ticketmaster.com.br/event/venda-geral-harry-styles",
+        "locale": "en-br",
+        "images": [
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                "width": 100,
+                "height": 56,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                "width": 2048,
+                "height": 1152,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                "width": 1024,
+                "height": 683,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                "width": 640,
+                "height": 427,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                "width": 640,
+                "height": 360,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                "width": 2426,
+                "height": 1365,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                "width": 205,
+                "height": 115,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                "width": 305,
+                "height": 203,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                "width": 1024,
+                "height": 576,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                "width": 1136,
+                "height": 639,
+                "fallback": false
+            },
+            {
+                "ratio": "4_3",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                "width": 305,
+                "height": 225,
+                "fallback": false
+            }
+        ],
+        "sales": {
+            "public": {
+                "startDateTime": "2026-01-28T14:00:00Z",
+                "startTBD": false,
+                "startTBA": false,
+                "endDateTime": "2026-07-18T02:45:00Z"
+            }
+        },
+        "dates": {
+            "start": {
+                "localDate": "2026-07-17",
+                "localTime": "20:45:00",
+                "dateTime": "2026-07-17T23:45:00Z",
+                "dateTBD": false,
+                "dateTBA": false,
+                "timeTBA": false,
+                "noSpecificTime": false
+            },
+            "timezone": "America/Sao_Paulo",
+            "status": {
+                "code": "onsale"
+            },
+            "spanMultipleDays": false
+        },
+        "classifications": [
+            {
+                "primary": true,
+                "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                },
+                "genre": {
+                    "id": "KnvZfZ7vAev",
+                    "name": "Pop"
+                },
+                "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vkEl",
+                    "name": "Pop Rock"
+                },
+                "family": false
+            }
+        ],
+        "nameOrigin": "custom",
+        "_links": {
+            "self": {
+                "href": "/discovery/v2/events/ZFIMVHtnMZ17ASpe?locale=en-br"
+            },
+            "attractions": [
+                {
+                    "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                }
+            ],
+            "venues": [
+                {
+                    "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                }
+            ]
+        },
+        "_embedded": {
+            "venues": [
+                {
+                    "name": "MorumBis",
+                    "type": "venue",
+                    "id": "ZGIMVHtnMZeede",
+                    "test": false,
+                    "url": "morumbis",
+                    "locale": "en-br",
+                    "postalCode": "05653-070",
+                    "timezone": "America/Sao_Paulo",
+                    "city": {},
+                    "state": {
+                        "stateCode": "SP"
+                    },
+                    "country": {
+                        "countryCode": "BR"
+                    },
+                    "address": {},
+                    "location": {
+                        "longitude": "-46.7210506",
+                        "latitude": "-23.6002654"
+                    },
+                    "upcomingEvents": {
+                        "crowder": 8,
+                        "_total": 8,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                        }
+                    }
+                }
+            ],
+            "attractions": [
+                {
+                    "name": "Harry Styles",
+                    "type": "attraction",
+                    "id": "K8vZ9174XZ0",
+                    "test": false,
+                    "url": "https://www.ticketmaster.com/harry-styles-tickets/artist/2366444",
+                    "locale": "en-us",
+                    "externalLinks": {
+                        "youtube": [
+                            {
+                                "url": "https://www.youtube.com/channel/UCbOCbp5gXL8jigIBZLqMPrw"
+                            }
+                        ],
+                        "twitter": [
+                            {
+                                "url": "https://twitter.com/Harry_Styles"
+                            }
+                        ],
+                        "itunes": [
+                            {
+                                "url": "https://itunes.apple.com/us/artist/id471260289"
+                            }
+                        ],
+                        "lastfm": [
+                            {
+                                "url": "https://www.last.fm/music/Harry%20Styles"
+                            }
+                        ],
+                        "spotify": [
+                            {
+                                "url": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"
+                            }
+                        ],
+                        "facebook": [
+                            {
+                                "url": "https://www.facebook.com/harrystyles"
+                            }
+                        ],
+                        "wiki": [
+                            {
+                                "url": "https://en.wikipedia.org/wiki/Harry_Styles"
+                            }
+                        ],
+                        "musicbrainz": [
+                            {
+                                "id": "7eb1ce54-a355-41f9-8d68-e018b096d427",
+                                "url": "https://musicbrainz.org/artist/7eb1ce54-a355-41f9-8d68-e018b096d427"
+                            }
+                        ],
+                        "instagram": [
+                            {
+                                "url": "https://instagram.com/harrystyles/"
+                            }
+                        ],
+                        "homepage": [
+                            {
+                                "url": "http://hstyles.co.uk/"
+                            }
+                        ]
+                    },
+                    "images": [
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                            "width": 100,
+                            "height": 56,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                            "width": 2048,
+                            "height": 1152,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                            "width": 1024,
+                            "height": 683,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                            "width": 640,
+                            "height": 427,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                            "width": 640,
+                            "height": 360,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                            "width": 2426,
+                            "height": 1365,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                            "width": 205,
+                            "height": 115,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                            "width": 305,
+                            "height": 203,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                            "width": 1024,
+                            "height": 576,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                            "width": 1136,
+                            "height": 639,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "4_3",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                            "width": 305,
+                            "height": 225,
+                            "fallback": false
+                        }
+                    ],
+                    "classifications": [
+                        {
+                            "primary": true,
+                            "segment": {
+                                "id": "KZFzniwnSyZfZ7v7nJ",
+                                "name": "Music"
+                            },
+                            "genre": {
+                                "id": "KnvZfZ7vAev",
+                                "name": "Pop"
+                            },
+                            "subGenre": {
+                                "id": "KZazBEonSMnZfZ7vkEl",
+                                "name": "Pop Rock"
+                            },
+                            "type": {
+                                "id": "KZAyXgnZfZ7v7lt",
+                                "name": "Event Style"
+                            },
+                            "subType": {
+                                "id": "KZFzBErXgnZfZ7vA6J",
+                                "name": "Concert"
+                            },
+                            "family": false
+                        }
+                    ],
+                    "upcomingEvents": {
+                        "mfx-nl": 20,
+                        "tmr": 1,
+                        "ticketmaster": 53,
+                        "crowder": 4,
+                        "_total": 78,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                        }
+                    }
+                }
+            ]
+        },
+        "etl_data_hora_extracao": "2026-04-24T13:51:19.002580"
+    },
+    {
+        "name": "Harry Styles: Together, Together",
+        "type": "event",
+        "id": "ZFIMVHtnMZ17ASrp",
+        "test": false,
+        "url": "https://www.ticketmaster.com.br/event/venda-geral-harry-styles",
+        "locale": "en-br",
+        "images": [
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                "width": 100,
+                "height": 56,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                "width": 2048,
+                "height": 1152,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                "width": 1024,
+                "height": 683,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                "width": 640,
+                "height": 427,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                "width": 640,
+                "height": 360,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                "width": 2426,
+                "height": 1365,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                "width": 205,
+                "height": 115,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                "width": 305,
+                "height": 203,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                "width": 1024,
+                "height": 576,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                "width": 1136,
+                "height": 639,
+                "fallback": false
+            },
+            {
+                "ratio": "4_3",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                "width": 305,
+                "height": 225,
+                "fallback": false
+            }
+        ],
+        "sales": {
+            "public": {
+                "startDateTime": "2026-01-28T14:00:00Z",
+                "startTBD": false,
+                "startTBA": false,
+                "endDateTime": "2026-07-19T02:45:00Z"
+            }
+        },
+        "dates": {
+            "start": {
+                "localDate": "2026-07-18",
+                "localTime": "20:45:00",
+                "dateTime": "2026-07-18T23:45:00Z",
+                "dateTBD": false,
+                "dateTBA": false,
+                "timeTBA": false,
+                "noSpecificTime": false
+            },
+            "timezone": "America/Sao_Paulo",
+            "status": {
+                "code": "onsale"
+            },
+            "spanMultipleDays": false
+        },
+        "classifications": [
+            {
+                "primary": true,
+                "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                },
+                "genre": {
+                    "id": "KnvZfZ7vAev",
+                    "name": "Pop"
+                },
+                "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vkEl",
+                    "name": "Pop Rock"
+                },
+                "family": false
+            }
+        ],
+        "nameOrigin": "custom",
+        "_links": {
+            "self": {
+                "href": "/discovery/v2/events/ZFIMVHtnMZ17ASrp?locale=en-br"
+            },
+            "attractions": [
+                {
+                    "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                }
+            ],
+            "venues": [
+                {
+                    "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                }
+            ]
+        },
+        "_embedded": {
+            "venues": [
+                {
+                    "name": "MorumBis",
+                    "type": "venue",
+                    "id": "ZGIMVHtnMZeede",
+                    "test": false,
+                    "url": "morumbis",
+                    "locale": "en-br",
+                    "postalCode": "05653-070",
+                    "timezone": "America/Sao_Paulo",
+                    "city": {},
+                    "state": {
+                        "stateCode": "SP"
+                    },
+                    "country": {
+                        "countryCode": "BR"
+                    },
+                    "address": {},
+                    "location": {
+                        "longitude": "-46.7210506",
+                        "latitude": "-23.6002654"
+                    },
+                    "upcomingEvents": {
+                        "crowder": 8,
+                        "_total": 8,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                        }
+                    }
+                }
+            ],
+            "attractions": [
+                {
+                    "name": "Harry Styles",
+                    "type": "attraction",
+                    "id": "K8vZ9174XZ0",
+                    "test": false,
+                    "url": "https://www.ticketmaster.com/harry-styles-tickets/artist/2366444",
+                    "locale": "en-us",
+                    "externalLinks": {
+                        "youtube": [
+                            {
+                                "url": "https://www.youtube.com/channel/UCbOCbp5gXL8jigIBZLqMPrw"
+                            }
+                        ],
+                        "twitter": [
+                            {
+                                "url": "https://twitter.com/Harry_Styles"
+                            }
+                        ],
+                        "itunes": [
+                            {
+                                "url": "https://itunes.apple.com/us/artist/id471260289"
+                            }
+                        ],
+                        "lastfm": [
+                            {
+                                "url": "https://www.last.fm/music/Harry%20Styles"
+                            }
+                        ],
+                        "spotify": [
+                            {
+                                "url": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"
+                            }
+                        ],
+                        "facebook": [
+                            {
+                                "url": "https://www.facebook.com/harrystyles"
+                            }
+                        ],
+                        "wiki": [
+                            {
+                                "url": "https://en.wikipedia.org/wiki/Harry_Styles"
+                            }
+                        ],
+                        "musicbrainz": [
+                            {
+                                "id": "7eb1ce54-a355-41f9-8d68-e018b096d427",
+                                "url": "https://musicbrainz.org/artist/7eb1ce54-a355-41f9-8d68-e018b096d427"
+                            }
+                        ],
+                        "instagram": [
+                            {
+                                "url": "https://instagram.com/harrystyles/"
+                            }
+                        ],
+                        "homepage": [
+                            {
+                                "url": "http://hstyles.co.uk/"
+                            }
+                        ]
+                    },
+                    "images": [
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                            "width": 100,
+                            "height": 56,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                            "width": 2048,
+                            "height": 1152,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                            "width": 1024,
+                            "height": 683,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                            "width": 640,
+                            "height": 427,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                            "width": 640,
+                            "height": 360,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                            "width": 2426,
+                            "height": 1365,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                            "width": 205,
+                            "height": 115,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                            "width": 305,
+                            "height": 203,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                            "width": 1024,
+                            "height": 576,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                            "width": 1136,
+                            "height": 639,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "4_3",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                            "width": 305,
+                            "height": 225,
+                            "fallback": false
+                        }
+                    ],
+                    "classifications": [
+                        {
+                            "primary": true,
+                            "segment": {
+                                "id": "KZFzniwnSyZfZ7v7nJ",
+                                "name": "Music"
+                            },
+                            "genre": {
+                                "id": "KnvZfZ7vAev",
+                                "name": "Pop"
+                            },
+                            "subGenre": {
+                                "id": "KZazBEonSMnZfZ7vkEl",
+                                "name": "Pop Rock"
+                            },
+                            "type": {
+                                "id": "KZAyXgnZfZ7v7lt",
+                                "name": "Event Style"
+                            },
+                            "subType": {
+                                "id": "KZFzBErXgnZfZ7vA6J",
+                                "name": "Concert"
+                            },
+                            "family": false
+                        }
+                    ],
+                    "upcomingEvents": {
+                        "mfx-nl": 20,
+                        "tmr": 1,
+                        "ticketmaster": 53,
+                        "crowder": 4,
+                        "_total": 78,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                        }
+                    }
+                }
+            ]
+        },
+        "etl_data_hora_extracao": "2026-04-24T13:51:19.002590"
+    },
+    {
+        "name": "Harry Styles: Together, Together",
+        "type": "event",
+        "id": "ZFIMVHtnMZ17AVjY",
+        "test": false,
+        "url": "https://www.ticketmaster.com.br/event/venda-geral-harry-styles",
+        "locale": "en-br",
+        "images": [
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                "width": 100,
+                "height": 56,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                "width": 2048,
+                "height": 1152,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                "width": 1024,
+                "height": 683,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                "width": 640,
+                "height": 427,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                "width": 640,
+                "height": 360,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                "width": 2426,
+                "height": 1365,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                "width": 205,
+                "height": 115,
+                "fallback": false
+            },
+            {
+                "ratio": "3_2",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                "width": 305,
+                "height": 203,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                "width": 1024,
+                "height": 576,
+                "fallback": false
+            },
+            {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                "width": 1136,
+                "height": 639,
+                "fallback": false
+            },
+            {
+                "ratio": "4_3",
+                "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                "width": 305,
+                "height": 225,
+                "fallback": false
+            }
+        ],
+        "sales": {
+            "public": {
+                "startDateTime": "2026-01-28T13:00:00Z",
+                "startTBD": false,
+                "startTBA": false,
+                "endDateTime": "2026-07-22T02:45:00Z"
+            }
+        },
+        "dates": {
+            "start": {
+                "localDate": "2026-07-21",
+                "localTime": "20:45:00",
+                "dateTime": "2026-07-21T23:45:00Z",
+                "dateTBD": false,
+                "dateTBA": false,
+                "timeTBA": false,
+                "noSpecificTime": false
+            },
+            "timezone": "America/Sao_Paulo",
+            "status": {
+                "code": "onsale"
+            },
+            "spanMultipleDays": false
+        },
+        "classifications": [
+            {
+                "primary": true,
+                "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                },
+                "genre": {
+                    "id": "KnvZfZ7vAev",
+                    "name": "Pop"
+                },
+                "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vkEl",
+                    "name": "Pop Rock"
+                },
+                "family": false
+            }
+        ],
+        "nameOrigin": "custom",
+        "_links": {
+            "self": {
+                "href": "/discovery/v2/events/ZFIMVHtnMZ17AVjY?locale=en-br"
+            },
+            "attractions": [
+                {
+                    "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                }
+            ],
+            "venues": [
+                {
+                    "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                }
+            ]
+        },
+        "_embedded": {
+            "venues": [
+                {
+                    "name": "MorumBis",
+                    "type": "venue",
+                    "id": "ZGIMVHtnMZeede",
+                    "test": false,
+                    "url": "morumbis",
+                    "locale": "en-br",
+                    "postalCode": "05653-070",
+                    "timezone": "America/Sao_Paulo",
+                    "city": {},
+                    "state": {
+                        "stateCode": "SP"
+                    },
+                    "country": {
+                        "countryCode": "BR"
+                    },
+                    "address": {},
+                    "location": {
+                        "longitude": "-46.7210506",
+                        "latitude": "-23.6002654"
+                    },
+                    "upcomingEvents": {
+                        "crowder": 8,
+                        "_total": 8,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/venues/ZGIMVHtnMZeede?locale=en-br"
+                        }
+                    }
+                }
+            ],
+            "attractions": [
+                {
+                    "name": "Harry Styles",
+                    "type": "attraction",
+                    "id": "K8vZ9174XZ0",
+                    "test": false,
+                    "url": "https://www.ticketmaster.com/harry-styles-tickets/artist/2366444",
+                    "locale": "en-us",
+                    "externalLinks": {
+                        "youtube": [
+                            {
+                                "url": "https://www.youtube.com/channel/UCbOCbp5gXL8jigIBZLqMPrw"
+                            }
+                        ],
+                        "twitter": [
+                            {
+                                "url": "https://twitter.com/Harry_Styles"
+                            }
+                        ],
+                        "itunes": [
+                            {
+                                "url": "https://itunes.apple.com/us/artist/id471260289"
+                            }
+                        ],
+                        "lastfm": [
+                            {
+                                "url": "https://www.last.fm/music/Harry%20Styles"
+                            }
+                        ],
+                        "spotify": [
+                            {
+                                "url": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3"
+                            }
+                        ],
+                        "facebook": [
+                            {
+                                "url": "https://www.facebook.com/harrystyles"
+                            }
+                        ],
+                        "wiki": [
+                            {
+                                "url": "https://en.wikipedia.org/wiki/Harry_Styles"
+                            }
+                        ],
+                        "musicbrainz": [
+                            {
+                                "id": "7eb1ce54-a355-41f9-8d68-e018b096d427",
+                                "url": "https://musicbrainz.org/artist/7eb1ce54-a355-41f9-8d68-e018b096d427"
+                            }
+                        ],
+                        "instagram": [
+                            {
+                                "url": "https://instagram.com/harrystyles/"
+                            }
+                        ],
+                        "homepage": [
+                            {
+                                "url": "http://hstyles.co.uk/"
+                            }
+                        ]
+                    },
+                    "images": [
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RECOMENDATION_16_9.jpg",
+                            "width": 100,
+                            "height": 56,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                            "width": 2048,
+                            "height": 1152,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_3_2.jpg",
+                            "width": 1024,
+                            "height": 683,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_3_2.jpg",
+                            "width": 640,
+                            "height": 427,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_PORTRAIT_16_9.jpg",
+                            "width": 640,
+                            "height": 360,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_SOURCE",
+                            "width": 2426,
+                            "height": 1365,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_EVENT_DETAIL_PAGE_16_9.jpg",
+                            "width": 205,
+                            "height": 115,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "3_2",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_ARTIST_PAGE_3_2.jpg",
+                            "width": 305,
+                            "height": 203,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_TABLET_LANDSCAPE_16_9.jpg",
+                            "width": 1024,
+                            "height": 576,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "16_9",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_RETINA_LANDSCAPE_16_9.jpg",
+                            "width": 1136,
+                            "height": 639,
+                            "fallback": false
+                        },
+                        {
+                            "ratio": "4_3",
+                            "url": "https://s1.ticketm.net/dam/a/99c/b7fb39e7-bc22-4f95-9d25-e57fcd83999c_CUSTOM.jpg",
+                            "width": 305,
+                            "height": 225,
+                            "fallback": false
+                        }
+                    ],
+                    "classifications": [
+                        {
+                            "primary": true,
+                            "segment": {
+                                "id": "KZFzniwnSyZfZ7v7nJ",
+                                "name": "Music"
+                            },
+                            "genre": {
+                                "id": "KnvZfZ7vAev",
+                                "name": "Pop"
+                            },
+                            "subGenre": {
+                                "id": "KZazBEonSMnZfZ7vkEl",
+                                "name": "Pop Rock"
+                            },
+                            "type": {
+                                "id": "KZAyXgnZfZ7v7lt",
+                                "name": "Event Style"
+                            },
+                            "subType": {
+                                "id": "KZFzBErXgnZfZ7vA6J",
+                                "name": "Concert"
+                            },
+                            "family": false
+                        }
+                    ],
+                    "upcomingEvents": {
+                        "mfx-nl": 20,
+                        "tmr": 1,
+                        "ticketmaster": 53,
+                        "crowder": 4,
+                        "_total": 78,
+                        "_filtered": 0
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "/discovery/v2/attractions/K8vZ9174XZ0?locale=en-us"
+                        }
+                    }
+                }
+            ]
+        },
+        "etl_data_hora_extracao": "2026-04-24T13:51:19.002592"
+    }
+]

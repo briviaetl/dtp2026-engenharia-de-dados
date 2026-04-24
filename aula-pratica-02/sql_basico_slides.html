@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Básico — DTP</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --border: #E2E0D8;
+    --text-primary: #1A1916;
+    --text-secondary: #6B6860;
+    --text-muted: #A09D97;
+    --accent: #2D5BE3;
+    --accent-light: #EEF2FD;
+    --create: #1A7A4A;
+    --create-bg: #EDFAF3;
+    --read: #2D5BE3;
+    --read-bg: #EEF2FD;
+    --update: #B45309;
+    --update-bg: #FEF3E2;
+    --delete: #C0392B;
+    --delete-bg: #FDECEB;
+    --code-bg: #F5F4EE;
+    --code-border: #DDD9CC;
+    --code-text: #1A1916;
+    --code-keyword: #0033B3;
+    --code-string: #A31515;
+    --code-comment: #6F6F6F;
+    --code-number: #098658;
+    --code-table: #267F99;
+    --code-col: #7A3E9D;
+  }
+
+  html, body { height: 100%; font-family: 'Sora', sans-serif; background: var(--bg); overflow: hidden; }
+  .deck { width: 100vw; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    padding: 44px 68px;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .slide.active { opacity: 1; pointer-events: all; transform: translateX(0); }
+  .slide.exit { opacity: 0; transform: translateX(-40px); transition: opacity 0.25s ease, transform 0.25s ease; }
+
+  .slide-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+  .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-family: 'DM Mono', monospace; }
+  .slide-counter { font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; }
+  .slide-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+  /* ── Intro ── */
+  .intro-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; font-family: 'DM Mono', monospace; }
+  .intro-title { font-size: 62px; font-weight: 700; color: var(--text-primary); line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.02em; }
+  .intro-title span { color: var(--accent); }
+  .intro-body { font-size: 17px; color: var(--text-secondary); line-height: 1.7; max-width: 640px; font-weight: 300; }
+  .intro-body strong { color: var(--text-primary); font-weight: 600; }
+  .intro-pill-row { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: var(--surface); }
+  .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+  /* ── CRUD ── */
+  .crud-title { font-size: 44px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 8px; }
+  .crud-subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 36px; font-weight: 300; }
+  .crud-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .crud-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: 16px; padding: 22px 20px; position: relative; overflow: hidden; }
+  .crud-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 16px 16px 0 0; }
+  .crud-card.c::before { background: var(--create); }
+  .crud-card.r::before { background: var(--read); }
+  .crud-card.u::before { background: var(--update); }
+  .crud-card.d::before { background: var(--delete); }
+  .crud-letter { font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 7px; letter-spacing: -0.03em; }
+  .crud-card.c .crud-letter { color: var(--create); }
+  .crud-card.r .crud-letter { color: var(--read); }
+  .crud-card.u .crud-letter { color: var(--update); }
+  .crud-card.d .crud-letter { color: var(--delete); }
+  .crud-word { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 9px; color: var(--text-primary); }
+  .crud-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; font-weight: 300; }
+  .crud-command { margin-top: 12px; display: inline-block; font-family: 'DM Mono', monospace; font-size: 11.5px; font-weight: 500; padding: 4px 10px; border-radius: 6px; }
+  .crud-card.c .crud-command { background: var(--create-bg); color: var(--create); }
+  .crud-card.r .crud-command { background: var(--read-bg); color: var(--read); }
+  .crud-card.u .crud-command { background: var(--update-bg); color: var(--update); }
+  .crud-card.d .crud-command { background: var(--delete-bg); color: var(--delete); }
+
+  /* ── Command slides ── */
+  .cmd-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+  .cmd-badge { display: inline-flex; align-items: center; padding: 5px 13px; border-radius: 100px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'DM Mono', monospace; margin-bottom: 16px; }
+  .badge-create { background: var(--create-bg); color: var(--create); }
+  .badge-read   { background: var(--read-bg);   color: var(--read); }
+  .badge-update { background: var(--update-bg); color: var(--update); }
+  .badge-delete { background: var(--delete-bg); color: var(--delete); }
+  .cmd-heading { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 16px; }
+  .cmd-heading.create { color: var(--create); }
+  .cmd-heading.read   { color: var(--read); }
+  .cmd-heading.update { color: var(--update); }
+  .cmd-heading.delete { color: var(--delete); }
+  .cmd-description { font-size: 15px; color: var(--text-secondary); line-height: 1.65; font-weight: 300; margin-bottom: 22px; }
+  .cmd-description strong { color: var(--text-primary); font-weight: 600; }
+  .cmd-points { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .cmd-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; font-weight: 300; }
+  .cmd-points li::before { content: '—'; color: var(--text-muted); flex-shrink: 0; }
+  .cmd-points li strong { color: var(--text-primary); font-weight: 600; }
+
+  /* ── Code block (light) ── */
+  .code-block {
+    background: var(--code-bg);
+    border: 1.5px solid var(--code-border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--code-text);
+    position: relative;
+  }
+  .code-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 12px 12px 0 0; }
+  .create .code-block::before { background: var(--create); }
+  .read   .code-block::before { background: var(--read); }
+  .update .code-block::before { background: var(--update); }
+  .delete .code-block::before { background: var(--delete); }
+  .code-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; display: block; }
+  .kw  { color: var(--code-keyword); font-weight: 500; }
+  .tbl { color: var(--code-table); font-weight: 500; }
+  .str { color: var(--code-string); }
+  .num { color: var(--code-number); }
+  .cmt { color: var(--code-comment); font-style: italic; }
+  .col { color: var(--code-col); }
+  .code-divider { border: none; border-top: 1px solid var(--code-border); margin: 12px 0; }
+
+  /* ── Result slides ── */
+  .result-top { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .result-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; padding: 4px 12px; border-radius: 100px; }
+  .result-eyebrow.create { background: var(--create-bg); color: var(--create); }
+  .result-eyebrow.read   { background: var(--read-bg);   color: var(--read); }
+  .result-eyebrow.update { background: var(--update-bg); color: var(--update); }
+  .result-eyebrow.delete { background: var(--delete-bg); color: var(--delete); }
+  .result-title { font-size: 24px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+
+  .result-sql { background: var(--code-bg); border: 1.5px solid var(--code-border); border-radius: 8px; padding: 11px 16px; font-family: 'DM Mono', monospace; font-size: 12.5px; line-height: 1.7; color: var(--code-text); margin-bottom: 20px; }
+
+  .result-layout { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 0; align-items: start; }
+  .result-col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'DM Mono', monospace; margin-bottom: 8px; }
+  .result-arrow { display: flex; align-items: flex-start; justify-content: center; padding-top: 52px; color: var(--text-muted); font-size: 20px; }
+  .result-note { font-size: 12px; margin-top: 9px; font-family: 'DM Mono', monospace; }
+  .note-create { color: var(--create); }
+  .note-read   { color: var(--read); }
+  .note-update { color: var(--update); }
+  .note-delete { color: var(--delete); }
+
+  /* Data table */
+  .data-table-wrap { background: var(--surface); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .data-table { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 12px; }
+  .data-table th { background: #EFEDE6; color: var(--text-secondary); font-weight: 600; padding: 9px 13px; text-align: left; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1.5px solid var(--border); }
+  .data-table td { padding: 8px 13px; color: var(--text-primary); border-bottom: 1px solid #F2F0EB; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .row-added   td { background: #F0FAF5; }
+  .row-added   td { color: var(--create); font-weight: 500; }
+  .row-removed td { background: #FEF0EF; color: var(--delete); text-decoration: line-through; opacity: 0.65; }
+  .row-changed td { background: #FFF8EE; }
+  .cell-changed { color: var(--update); font-weight: 600; }
+  .col-highlight { color: var(--accent); font-weight: 600; }
+  .row-dimmed td { opacity: 0.3; }
+  .empty-row td { text-align: center; color: var(--text-muted); font-style: italic; padding: 20px; font-size: 12px; }
+
+  /* ── Nav ── */
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
+  .nav-btn { display: flex; align-items: center; gap: 8px; padding: 9px 18px; border: 1.5px solid var(--border); border-radius: 100px; background: var(--surface); font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+  .nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-dots { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; max-width: 260px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+  .dot.active { background: var(--accent); width: 20px; border-radius: 4px; }
+  .dot:hover:not(.active) { background: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- SLIDE 1 — O que é SQL -->
+  <div class="slide active" id="slide-0">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">01 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="intro-eyebrow">Fundamentos</div>
+      <h1 class="intro-title">O que é<br><span>SQL?</span></h1>
+      <p class="intro-body"><strong>Structured Query Language</strong> — é a linguagem usada para conversar com bancos de dados relacionais. Com ela, você diz ao banco o que quer fazer com os dados: buscar, criar, alterar ou apagar.</p>
+      <p class="intro-body" style="margin-top:14px;">Não é uma linguagem de programação no sentido tradicional. É uma <strong>linguagem declarativa</strong> — você descreve o que quer, e o banco de dados descobre como fazer.</p>
+      <div class="intro-pill-row">
+        <div class="pill"><div class="pill-dot"></div>MySQL</div>
+        <div class="pill"><div class="pill-dot"></div>PostgreSQL</div>
+        <div class="pill"><div class="pill-dot"></div>BigQuery</div>
+        <div class="pill"><div class="pill-dot"></div>SQLite</div>
+        <div class="pill"><div class="pill-dot" style="background:#267F99"></div>DuckDB</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" disabled>← Anterior</button>
+      <div class="nav-dots" id="dots-0"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — CRUD -->
+  <div class="slide" id="slide-1">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">02 / 10</span>
+    </div>
+    <div class="slide-body">
+      <h2 class="crud-title">As 4 operações — CRUD</h2>
+      <p class="crud-subtitle">Tudo que você faz com dados se encaixa em uma dessas quatro categorias.</p>
+      <div class="crud-grid">
+        <div class="crud-card c">
+          <div class="crud-letter">C</div>
+          <div class="crud-word">Create</div>
+          <div class="crud-desc">Criar tabelas e inserir linhas novas no banco.</div>
+          <div class="crud-command">CREATE / INSERT</div>
+        </div>
+        <div class="crud-card r">
+          <div class="crud-letter">R</div>
+          <div class="crud-word">Read</div>
+          <div class="crud-desc">Consultar e ler os dados que já existem.</div>
+          <div class="crud-command">SELECT</div>
+        </div>
+        <div class="crud-card u">
+          <div class="crud-letter">U</div>
+          <div class="crud-word">Update</div>
+          <div class="crud-desc">Modificar o valor de registros existentes.</div>
+          <div class="crud-command">UPDATE</div>
+        </div>
+        <div class="crud-card d">
+          <div class="crud-letter">D</div>
+          <div class="crud-word">Delete</div>
+          <div class="crud-desc">Remover linhas ou tabelas inteiras do banco.</div>
+          <div class="crud-command">DELETE / DROP</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-1"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — CREATE comando -->
+  <div class="slide create" id="slide-2">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">03 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="cmd-layout">
+        <div>
+          <div class="cmd-badge badge-create">Create</div>
+          <h2 class="cmd-heading create">CREATE<br>& INSERT</h2>
+          <p class="cmd-description"><strong>CREATE TABLE</strong> define a estrutura — os nomes das colunas e os tipos de dado. <strong>INSERT INTO</strong> adiciona linhas nessa estrutura.</p>
+          <ul class="cmd-points">
+            <li>Você define as colunas e o tipo de cada uma</li>
+            <li>Tipos comuns: <strong>TEXT</strong>, <strong>INTEGER</strong>, <strong>FLOAT</strong>, <strong>DATE</strong></li>
+            <li>Sem uma tabela, não tem onde guardar o dado</li>
+          </ul>
+        </div>
+        <div>
+          <div class="code-block">
+            <span class="code-label">SQL</span>
+            <span class="kw">CREATE TABLE</span> <span class="tbl">clima</span> (<br>
+            &nbsp;&nbsp;<span class="col">cidade</span>&nbsp;&nbsp;&nbsp;<span class="kw">TEXT</span>,<br>
+            &nbsp;&nbsp;<span class="col">data</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">DATE</span>,<br>
+            &nbsp;&nbsp;<span class="col">temp_max</span> <span class="kw">FLOAT</span>,<br>
+            &nbsp;&nbsp;<span class="col">chuva_mm</span> <span class="kw">FLOAT</span><br>
+            );<br>
+            <hr class="code-divider">
+            <span class="kw">INSERT INTO</span> <span class="tbl">clima</span><br>
+            &nbsp;&nbsp;(<span class="col">cidade</span>, <span class="col">data</span>, <span class="col">temp_max</span>, <span class="col">chuva_mm</span>)<br>
+            <span class="kw">VALUES</span><br>
+            &nbsp;&nbsp;(<span class="str">'São Paulo'</span>, <span class="str">'2024-01-15'</span>, <span class="num">31.2</span>, <span class="num">12.5</span>);
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-2"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — CREATE resultado -->
+  <div class="slide" id="slide-3">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">04 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="result-top">
+        <span class="result-eyebrow create">Create</span>
+        <h2 class="result-title">Na prática — o que acontece com a tabela</h2>
+      </div>
+      <div class="result-sql">
+        <span class="kw">INSERT INTO</span> <span class="tbl">clima</span> (<span class="col">cidade</span>, <span class="col">data</span>, <span class="col">temp_max</span>, <span class="col">chuva_mm</span>)
+        <span class="kw">VALUES</span> (<span class="str">'São Paulo'</span>, <span class="str">'2024-01-15'</span>, <span class="num">31.2</span>, <span class="num">12.5</span>);
+      </div>
+      <div class="result-layout">
+        <div>
+          <div class="result-col-label">Antes do INSERT</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody><tr><td colspan="4" class="empty-row" style="text-align:center;color:var(--text-muted);font-style:italic;padding:20px;font-size:12px;">tabela vazia — nenhuma linha ainda</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="result-arrow">→</div>
+        <div>
+          <div class="result-col-label">Após o INSERT</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr class="row-added"><td>São Paulo</td><td>2024-01-15</td><td>31.2</td><td>12.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="result-note note-create">+ 1 linha inserida</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-3"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 — SELECT comando -->
+  <div class="slide read" id="slide-4">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">05 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="cmd-layout">
+        <div>
+          <div class="cmd-badge badge-read">Read</div>
+          <h2 class="cmd-heading read">SELECT</h2>
+          <p class="cmd-description">O comando mais usado em SQL. Você <strong>consulta os dados</strong> sem alterar nada — só lê. É por onde começa qualquer análise.</p>
+          <ul class="cmd-points">
+            <li><strong>SELECT *</strong> traz todas as colunas</li>
+            <li><strong>WHERE</strong> filtra as linhas por condição</li>
+            <li><strong>ORDER BY</strong> ordena o resultado</li>
+            <li><strong>LIMIT</strong> restringe quantas linhas retornam</li>
+          </ul>
+        </div>
+        <div>
+          <div class="code-block">
+            <span class="code-label">SQL</span>
+            <span class="cmt">-- todas as colunas</span><br>
+            <span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="tbl">clima</span>;<br>
+            <hr class="code-divider">
+            <span class="cmt">-- colunas específicas + filtro</span><br>
+            <span class="kw">SELECT</span> <span class="col">cidade</span>, <span class="col">temp_max</span><br>
+            <span class="kw">FROM</span> <span class="tbl">clima</span><br>
+            <span class="kw">WHERE</span> <span class="col">temp_max</span> &gt; <span class="num">30</span>;<br>
+            <hr class="code-divider">
+            <span class="cmt">-- ordenar e limitar</span><br>
+            <span class="kw">SELECT</span> <span class="col">cidade</span>, <span class="col">chuva_mm</span><br>
+            <span class="kw">FROM</span> <span class="tbl">clima</span><br>
+            <span class="kw">ORDER BY</span> <span class="col">chuva_mm</span> <span class="kw">DESC</span><br>
+            <span class="kw">LIMIT</span> <span class="num">3</span>;
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-4"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 — SELECT resultado -->
+  <div class="slide" id="slide-5">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">06 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="result-top">
+        <span class="result-eyebrow read">Read</span>
+        <h2 class="result-title">Na prática — filtrando linhas com WHERE</h2>
+      </div>
+      <div class="result-sql">
+        <span class="kw">SELECT</span> <span class="col">cidade</span>, <span class="col">temp_max</span>
+        <span class="kw">FROM</span> <span class="tbl">clima</span>
+        <span class="kw">WHERE</span> <span class="col">temp_max</span> &gt; <span class="num">30</span>;
+      </div>
+      <div class="result-layout">
+        <div>
+          <div class="result-col-label">Tabela clima — 5 linhas</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr><td>São Paulo</td><td>2024-01-15</td><td class="col-highlight">31.2</td><td>12.5</td></tr>
+                <tr class="row-dimmed"><td>Curitiba</td><td>2024-01-15</td><td>24.1</td><td>8.3</td></tr>
+                <tr><td>Rio de Janeiro</td><td>2024-01-15</td><td class="col-highlight">34.8</td><td>0.0</td></tr>
+                <tr class="row-dimmed"><td>Porto Alegre</td><td>2024-01-15</td><td>28.5</td><td>3.2</td></tr>
+                <tr><td>Manaus</td><td>2024-01-15</td><td class="col-highlight">33.6</td><td>22.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="result-arrow">→</div>
+        <div>
+          <div class="result-col-label">Resultado — 3 linhas (temp_max &gt; 30)</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>temp_max</th></tr></thead>
+              <tbody>
+                <tr><td>São Paulo</td><td class="col-highlight">31.2</td></tr>
+                <tr><td>Rio de Janeiro</td><td class="col-highlight">34.8</td></tr>
+                <tr><td>Manaus</td><td class="col-highlight">33.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="result-note note-read">5 → 3 linhas após o filtro</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-5"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 — UPDATE comando -->
+  <div class="slide update" id="slide-6">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">07 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="cmd-layout">
+        <div>
+          <div class="cmd-badge badge-update">Update</div>
+          <h2 class="cmd-heading update">UPDATE</h2>
+          <p class="cmd-description">Modifica o valor de colunas em <strong>linhas que já existem</strong>. Sempre use com <strong>WHERE</strong> — sem ele, você altera a tabela inteira.</p>
+          <ul class="cmd-points">
+            <li><strong>SET</strong> define qual coluna muda e o novo valor</li>
+            <li><strong>WHERE</strong> determina quais linhas são afetadas</li>
+            <li>Sem WHERE, <strong>todas as linhas</strong> são atualizadas</li>
+          </ul>
+        </div>
+        <div>
+          <div class="code-block">
+            <span class="code-label">SQL</span>
+            <span class="cmt">-- corrigir um valor específico</span><br>
+            <span class="kw">UPDATE</span> <span class="tbl">clima</span><br>
+            <span class="kw">SET</span> <span class="col">temp_max</span> = <span class="num">29.8</span><br>
+            <span class="kw">WHERE</span> <span class="col">cidade</span> = <span class="str">'São Paulo'</span><br>
+            &nbsp;&nbsp;<span class="kw">AND</span> <span class="col">data</span> = <span class="str">'2024-01-15'</span>;<br>
+            <hr class="code-divider">
+            <span class="cmt">-- sem WHERE: altera tudo (cuidado!)</span><br>
+            <span class="kw">UPDATE</span> <span class="tbl">clima</span><br>
+            <span class="kw">SET</span> <span class="col">chuva_mm</span> = <span class="num">0</span>;<br>
+            <span class="cmt">-- zeraria TODAS as linhas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-6"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 — UPDATE resultado -->
+  <div class="slide" id="slide-7">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">08 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="result-top">
+        <span class="result-eyebrow update">Update</span>
+        <h2 class="result-title">Na prática — alterando um valor existente</h2>
+      </div>
+      <div class="result-sql">
+        <span class="kw">UPDATE</span> <span class="tbl">clima</span>
+        <span class="kw">SET</span> <span class="col">temp_max</span> = <span class="num">29.8</span>
+        <span class="kw">WHERE</span> <span class="col">cidade</span> = <span class="str">'São Paulo'</span>
+        <span class="kw">AND</span> <span class="col">data</span> = <span class="str">'2024-01-15'</span>;
+      </div>
+      <div class="result-layout">
+        <div>
+          <div class="result-col-label">Antes do UPDATE</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr class="row-changed"><td>São Paulo</td><td>2024-01-15</td><td class="cell-changed">31.2</td><td>12.5</td></tr>
+                <tr><td>Curitiba</td><td>2024-01-15</td><td>24.1</td><td>8.3</td></tr>
+                <tr><td>Rio de Janeiro</td><td>2024-01-15</td><td>34.8</td><td>0.0</td></tr>
+                <tr><td>Porto Alegre</td><td>2024-01-15</td><td>28.5</td><td>3.2</td></tr>
+                <tr><td>Manaus</td><td>2024-01-15</td><td>33.6</td><td>22.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="result-arrow">→</div>
+        <div>
+          <div class="result-col-label">Após o UPDATE</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr class="row-changed"><td>São Paulo</td><td>2024-01-15</td><td class="cell-changed">29.8</td><td>12.5</td></tr>
+                <tr><td>Curitiba</td><td>2024-01-15</td><td>24.1</td><td>8.3</td></tr>
+                <tr><td>Rio de Janeiro</td><td>2024-01-15</td><td>34.8</td><td>0.0</td></tr>
+                <tr><td>Porto Alegre</td><td>2024-01-15</td><td>28.5</td><td>3.2</td></tr>
+                <tr><td>Manaus</td><td>2024-01-15</td><td>33.6</td><td>22.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="result-note note-update">31.2 → 29.8 em 1 linha</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-7"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 — DELETE comando -->
+  <div class="slide delete" id="slide-8">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">09 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="cmd-layout">
+        <div>
+          <div class="cmd-badge badge-delete">Delete</div>
+          <h2 class="cmd-heading delete">DELETE<br>& DROP</h2>
+          <p class="cmd-description"><strong>DELETE</strong> remove linhas de uma tabela. <strong>DROP TABLE</strong> apaga a tabela inteira — estrutura e dados. Ambos são <strong>irreversíveis</strong> sem backup.</p>
+          <ul class="cmd-points">
+            <li><strong>DELETE + WHERE</strong> remove linhas específicas</li>
+            <li><strong>DELETE</strong> sem WHERE esvazia a tabela</li>
+            <li><strong>DROP TABLE</strong> apaga a tabela por completo</li>
+          </ul>
+        </div>
+        <div>
+          <div class="code-block">
+            <span class="code-label">SQL</span>
+            <span class="cmt">-- remover uma linha específica</span><br>
+            <span class="kw">DELETE FROM</span> <span class="tbl">clima</span><br>
+            <span class="kw">WHERE</span> <span class="col">cidade</span> = <span class="str">'Rio de Janeiro'</span>;<br>
+            <hr class="code-divider">
+            <span class="cmt">-- esvaziar a tabela (sem WHERE)</span><br>
+            <span class="kw">DELETE FROM</span> <span class="tbl">clima</span>;<br>
+            <span class="cmt">-- remove TODAS as linhas</span><br>
+            <hr class="code-divider">
+            <span class="cmt">-- apagar a tabela completamente</span><br>
+            <span class="kw">DROP TABLE</span> <span class="tbl">clima</span>;
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-8"></div>
+      <button class="nav-btn" onclick="next()">Próximo →</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 10 — DELETE resultado -->
+  <div class="slide" id="slide-9">
+    <div class="slide-header">
+      <span class="tag">Data Training Program</span>
+      <span class="slide-counter">10 / 10</span>
+    </div>
+    <div class="slide-body">
+      <div class="result-top">
+        <span class="result-eyebrow delete">Delete</span>
+        <h2 class="result-title">Na prática — removendo uma linha</h2>
+      </div>
+      <div class="result-sql">
+        <span class="kw">DELETE FROM</span> <span class="tbl">clima</span>
+        <span class="kw">WHERE</span> <span class="col">cidade</span> = <span class="str">'Rio de Janeiro'</span>;
+      </div>
+      <div class="result-layout">
+        <div>
+          <div class="result-col-label">Antes do DELETE — 5 linhas</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr><td>São Paulo</td><td>2024-01-15</td><td>29.8</td><td>12.5</td></tr>
+                <tr><td>Curitiba</td><td>2024-01-15</td><td>24.1</td><td>8.3</td></tr>
+                <tr class="row-removed"><td>Rio de Janeiro</td><td>2024-01-15</td><td>34.8</td><td>0.0</td></tr>
+                <tr><td>Porto Alegre</td><td>2024-01-15</td><td>28.5</td><td>3.2</td></tr>
+                <tr><td>Manaus</td><td>2024-01-15</td><td>33.6</td><td>22.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="result-arrow">→</div>
+        <div>
+          <div class="result-col-label">Após o DELETE — 4 linhas</div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>cidade</th><th>data</th><th>temp_max</th><th>chuva_mm</th></tr></thead>
+              <tbody>
+                <tr><td>São Paulo</td><td>2024-01-15</td><td>29.8</td><td>12.5</td></tr>
+                <tr><td>Curitiba</td><td>2024-01-15</td><td>24.1</td><td>8.3</td></tr>
+                <tr><td>Porto Alegre</td><td>2024-01-15</td><td>28.5</td><td>3.2</td></tr>
+                <tr><td>Manaus</td><td>2024-01-15</td><td>33.6</td><td>22.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="result-note note-delete">5 → 4 linhas após o DELETE</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" onclick="prev()">← Anterior</button>
+      <div class="nav-dots" id="dots-9"></div>
+      <button class="nav-btn" disabled>Próximo →</button>
+    </div>
+  </div>
+
+</div>
+<script>
+  let current = 0;
+  const total = 10;
+
+  function buildDots() {
+    for (let i = 0; i < total; i++) {
+      const container = document.getElementById('dots-' + i);
+      if (!container) continue;
+      for (let j = 0; j < total; j++) {
+        const d = document.createElement('div');
+        d.className = 'dot' + (j === i ? ' active' : '');
+        d.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(j));
+        container.appendChild(d);
+      }
+    }
+  }
+
+  function updateDots() {
+    document.querySelectorAll('.nav-dots').forEach(row => {
+      row.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    });
+  }
+
+  function goTo(index) {
+    const slides = document.querySelectorAll('.slide');
+    slides[current].classList.remove('active');
+    slides[current].classList.add('exit');
+    setTimeout(() => slides[current].classList.remove('exit'), 300);
+    current = index;
+    slides[current].classList.add('active');
+    updateDots();
+  }
+
+  function next() { if (current < total - 1) goTo(current + 1); }
+  function prev() { if (current > 0) goTo(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
+  });
+
+  buildDots();
+</script>
+</body>
+</html>
