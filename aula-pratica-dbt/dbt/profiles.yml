@@ -1,0 +1,14 @@
+exemplo_dbt:
+  target: dev
+  outputs:
+    dev:
+      dataset: dbt
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /home/gustavo/brivia/dev/dtp/2026/aula-pratica-final/service-account.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: exemplos-dtp
+      threads: 6
+      type: bigquery

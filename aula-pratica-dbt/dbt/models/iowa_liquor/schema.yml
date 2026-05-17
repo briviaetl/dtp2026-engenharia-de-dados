@@ -1,0 +1,9 @@
+models:
+  - name: dm_date
+    description: Dimensão com valores de datas
+    columns:
+      - name: day_of_week_number
+        description: Dia da semana
+        data_tests:
+          - not_null
+          - unique

@@ -1,0 +1,6 @@
+sources:
+  - name: iwoa_liquor
+    schema: iowa_liquor_sales
+    database: bigquery-public-data
+    tables:
+      - name: sales
